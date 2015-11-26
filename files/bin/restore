@@ -1,0 +1,17 @@
+
+REAL_HN=${REAL_HN:-$HOSTNAME}
+ENV=${ENV:-dev}
+NUM_WORKERS=${NUM_WORKERS:-8}
+WHISPER_PATH=${WHISPER_PATH:-/data/graphite/whisper/}
+BUCKET=${BUCKET:-graphite-archiving-test}
+
+echo "To restore use the following: "
+echo 'whisper-backup -p $WHISPER_PATH --storage-path=${ENV}/${REAL_HN}/  --bucket=$BUCKET restore s3'
+echo eg:
+echo whisper-backup -p $WHISPER_PATH --storage-path=${ENV}/${REAL_HN}/  --bucket=$BUCKET restore s3
+echo
+echo "Currently we won't restore automatically. Exiting..."
+sleep 10
+exit 1
+
+

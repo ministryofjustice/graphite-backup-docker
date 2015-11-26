@@ -10,7 +10,9 @@ STAMP_FILE=/var/tmp/whisper-backup.success
 
 rm -f ${STAMP_FILE}
 
-whisper-backup --syslog -p $WHISPER_PATH --stampfile=${STAMP_FILE} --storage-path=${ENV}/${REAL_HN}/ -f $NUM_WORKERS  --bucket=$BUCKET backup s3
+exec whisper-backup --syslog -p $WHISPER_PATH --stampfile=${STAMP_FILE} \
+    --storage-path=${ENV}/${REAL_HN}/ -f $NUM_WORKERS  \
+    --bucket=$BUCKET backup s3 $@
 
-#/var/tmp/whisper-backup.success
+#TODO: Maybe report on /var/tmp/whisper-backup.success
 
